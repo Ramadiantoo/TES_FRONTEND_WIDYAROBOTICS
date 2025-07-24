@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "types": ["node"],              // ⬅️ Tambahkan ini
+    "moduleResolution": "node",     // ⬅️ Tambahkan ini juga
+    "esModuleInterop": true         // ⬅️ Opsional tapi disarankan
+  },
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
