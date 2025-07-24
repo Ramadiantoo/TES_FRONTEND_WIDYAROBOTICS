@@ -1,5 +1,5 @@
 // src/api/vehicles.ts
-import axios from 'axios';
+import axios from 'axios'; // Tetap impor axios, tapi kita tidak akan menggunakannya langsung untuk mock
 import type { Vehicle, VehicleTelemetry } from '../types';
 
 // Data mock untuk simulasi API
@@ -19,7 +19,8 @@ const mockTelemetry: { [key: number]: VehicleTelemetry } = {
   5: { vehicleId: 5, odometer: 567890.12, fuel_level: 92.1, timestamp: "2025-07-23T10:10:00Z", latitude: -6.18, longitude: 106.88, speed: 70 },
 };
 
-// const API_BASE_URL = 'http://localhost:3000'; // Ini bisa dikomentari atau dihapus jika tidak digunakan
+// Bagian ini dikomentari karena kita pakai mock, bukan API sungguhan untuk sementara:
+// const API_BASE_URL = 'http://localhost:3000';
 
 export const getVehicles = async (): Promise<Vehicle[]> => {
   // Simulasi panggilan API dengan penundaan
