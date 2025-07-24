@@ -1,17 +1,17 @@
 // src/App.tsx
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
 import VehicleListPage from './pages/VehicleListPage';
 import VehicleDetailPage from './pages/VehicleDetailPage';
-import Layout from './components/Layout'; // Import komponen Layout
 
 function App() {
   return (
     <Router>
-      <Layout> {/* Gunakan Layout di sini */}
+      <Layout>
         <Routes>
           <Route path="/" element={<VehicleListPage />} />
           <Route path="/vehicles/:id" element={<VehicleDetailPage />} />
-          {/* Tambahkan rute lain jika ada */}
         </Routes>
       </Layout>
     </Router>

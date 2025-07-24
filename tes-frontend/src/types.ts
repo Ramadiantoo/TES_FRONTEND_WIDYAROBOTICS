@@ -1,18 +1,17 @@
 // src/types.ts
-
 export interface Vehicle {
   id: number;
   name: string;
-  status: 'ACTIVE' | 'INACTIVE' | 'MAINTENANCE'; // Contoh status
+  status: string;
   speed: number;
-  updated_at: string; // ISO 8601 string
+  updated_at: string;
 }
 
 export interface VehicleTelemetry {
   vehicleId: number;
   odometer: number;
   fuel_level: number;
-  timestamp: string; // ISO 8601 string
+  timestamp: string;
   latitude: number;
   longitude: number;
   speed: number;

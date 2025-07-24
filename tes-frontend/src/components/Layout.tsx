@@ -1,7 +1,7 @@
 // src/components/Layout.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from './ui/button'; // Pastikan path ini benar
+import { Button } from './ui/button'; 
 
 interface LayoutProps {
   children: React.ReactNode;

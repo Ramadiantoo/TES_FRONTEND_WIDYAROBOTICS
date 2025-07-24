@@ -9,13 +9,17 @@ interface VehicleState {
   errorVehicles: string | null;
   loadingTelemetry: boolean;
   errorTelemetry: string | null;
-
+  searchTerm: string; // Baru: untuk fitur pencarian
+  filterStatus: string; // Baru: untuk filter berdasarkan status
+  
   setVehicles: (vehicles: Vehicle[]) => void;
   setSelectedVehicleTelemetry: (telemetry: VehicleTelemetry | null) => void;
   setLoadingVehicles: (loading: boolean) => void;
   setErrorVehicles: (error: string | null) => void;
   setLoadingTelemetry: (loading: boolean) => void;
   setErrorTelemetry: (error: string | null) => void;
+  setSearchTerm: (term: string) => void; // Aksi baru
+  setFilterStatus: (status: string) => void; // Aksi baru
 }
 
 export const useVehicleStore = create<VehicleState>((set) => ({
@@ -25,11 +29,15 @@ export const useVehicleStore = create<VehicleState>((set) => ({
   errorVehicles: null,
   loadingTelemetry: false,
   errorTelemetry: null,
-
+  searchTerm: '',
+  filterStatus: 'ALL', // Status filter default
+  
   setVehicles: (vehicles) => set({ vehicles }),
   setSelectedVehicleTelemetry: (telemetry) => set({ selectedVehicleTelemetry: telemetry }),
   setLoadingVehicles: (loading) => set({ loadingVehicles: loading }),
   setErrorVehicles: (error) => set({ errorVehicles: error }),
   setLoadingTelemetry: (loading) => set({ loadingTelemetry: loading }),
   setErrorTelemetry: (error) => set({ errorTelemetry: error }),
+  setSearchTerm: (term) => set({ searchTerm: term }),
+  setFilterStatus: (status) => set({ filterStatus: status }),
 }));
