@@ -1,12 +1,15 @@
 import React from 'react';
 
 const LoadingSpinner: React.FC = () => {
-  return (
-    <div className="flex flex-col justify-center items-center min-h-[200px] bg-background rounded-lg shadow-md p-6">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary border-opacity-75"></div>
-      <p className="ml-4 text-primary text-lg font-medium mt-4">Loading data...</p>
-    </div>
-  );
+  return (
+    <div className="flex flex-col justify-center items-center min-h-[250px] bg-white rounded-xl shadow-2xl p-8">
+      <div className="relative">
+        <div className="h-20 w-20 rounded-full border-4 border-gray-200"></div>
+        <div className="absolute inset-0 animate-spin rounded-full h-20 w-20 border-4 border-t-blue-600 border-r-blue-600 border-b-blue-600 border-l-transparent"></div>
+      </div>
+      <p className="text-blue-700 text-2xl font-bold mt-6 animate-pulse">Memuat Data...</p>
+    </div>
+  );
 };
 
 export default LoadingSpinner;

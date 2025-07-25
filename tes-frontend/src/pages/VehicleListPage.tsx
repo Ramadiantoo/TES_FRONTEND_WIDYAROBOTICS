@@ -123,7 +123,6 @@ const VehicleListPage: React.FC = () => {
           <CardTitle className="text-xl font-semibold text-gray-800">Vehicle List</CardTitle>
           <div className="flex gap-4">
             <div className="relative">
-              {/* PERUBAHAN DI SINI: Menambahkan border border-gray-400 */}
               <Input
                 placeholder="Cari berdasarkan nama atau ID..."
                 value={searchTerm}
@@ -139,7 +138,6 @@ const VehicleListPage: React.FC = () => {
                 </button>
               )}
           </div>
-            {/* PERUBAHAN DI SINI: Menambahkan border border-gray-400 */}
             <Select value={filterStatus} onValueChange={setFilterStatus}>
               <SelectTrigger className="w-full md:w-[180px] border-gray-400">
                 <SelectValue placeholder="Filter berdasarkan Status" />

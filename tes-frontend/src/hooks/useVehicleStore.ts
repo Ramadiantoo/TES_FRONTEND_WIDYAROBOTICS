@@ -9,8 +9,8 @@ interface VehicleState {
   errorVehicles: string | null;
   loadingTelemetry: boolean;
   errorTelemetry: string | null;
-  searchTerm: string; // Baru: untuk fitur pencarian
-  filterStatus: string; // Baru: untuk filter berdasarkan status
+  searchTerm: string; 
+  filterStatus: string; 
   
   setVehicles: (vehicles: Vehicle[]) => void;
   setSelectedVehicleTelemetry: (telemetry: VehicleTelemetry | null) => void;
@@ -18,8 +18,8 @@ interface VehicleState {
   setErrorVehicles: (error: string | null) => void;
   setLoadingTelemetry: (loading: boolean) => void;
   setErrorTelemetry: (error: string | null) => void;
-  setSearchTerm: (term: string) => void; // Aksi baru
-  setFilterStatus: (status: string) => void; // Aksi baru
+  setSearchTerm: (term: string) => void; 
+  setFilterStatus: (status: string) => void; 
 }
 
 export const useVehicleStore = create<VehicleState>((set) => ({
@@ -30,7 +30,7 @@ export const useVehicleStore = create<VehicleState>((set) => ({
   loadingTelemetry: false,
   errorTelemetry: null,
   searchTerm: '',
-  filterStatus: 'ALL', // Status filter default
+  filterStatus: 'ALL', 
   
   setVehicles: (vehicles) => set({ vehicles }),
   setSelectedVehicleTelemetry: (telemetry) => set({ selectedVehicleTelemetry: telemetry }),
