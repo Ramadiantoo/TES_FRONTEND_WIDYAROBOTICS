@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo } from 'react';
 import { useVehicleStore } from '../hooks/useVehicleStore';
 import { getVehicles } from '../api/vehicles';
-import VehicleCard from '../components/VehicleCard'; // Tetap gunakan VehicleCard
+import VehicleCard from '../components/VehicleCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 import MapComponent from '../components/MapComponent';
 import { Input } from "@/components/ui/input";
@@ -42,14 +42,12 @@ const VehicleListPage: React.FC = () => {
 
   const filteredVehicles = useMemo(() => {
     let filtered = vehicles;
-    // Terapkan filter pencarian
     if (searchTerm) {
       filtered = filtered.filter(vehicle =>
         vehicle.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         vehicle.id.toString().includes(searchTerm)
       );
     }
-    // Terapkan filter status
     if (filterStatus !== 'ALL') {
       filtered = filtered.filter(vehicle => vehicle.status === filterStatus);
     }
@@ -58,15 +56,12 @@ const VehicleListPage: React.FC = () => {
 
   const onlineVehicles = vehicles.filter(v => v.status === 'ACTIVE').length;
   const disconnectedVehicles = vehicles.filter(v => v.status === 'INACTIVE').length;
-  const offlineVehicles = vehicles.filter(v => v.status === 'MAINTENANCE').length; // Mengasumsikan MAINTENANCE dipetakan ke offline
+  const offlineVehicles = vehicles.filter(v => v.status === 'MAINTENANCE').length;
 
-  // Tentukan pusat peta default, mungkin kendaraan aktif pertama atau area umum
   const defaultMapCenter = useMemo(() => {
     const activeVehicle = vehicles.find(v => v.status === 'ACTIVE');
-    // Menggunakan lokasi default jika tidak ada kendaraan aktif atau tidak ada telemetri yang tersedia
     return activeVehicle ? { latitude: -6.12, longitude: 106.85, vehicleName: activeVehicle.name } : { latitude: -6.2088, longitude: 106.8456, vehicleName: "Bekasi, Indonesia" };
   }, [vehicles]);
-
 
   if (loadingVehicles) {
     return <LoadingSpinner />;
@@ -78,25 +73,19 @@ const VehicleListPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Kartu Gambaran Umum */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-3">
-        {/* PERUBAHAN DI SINI: flex flex-col items-center justify-center pada Card */}
-        <Card className="flex flex-col items-center justify-center p-4 shadow-md bg-white rounded-lg">
-          {/* Hapus mr-4 dari div ikon karena sekarang ditumpuk */}
+        <Card className="flex flex-col items-center justify-center p-4 shadow-md bg-white rounded-lg border border-gray-400">
           <div className="bg-green-100 rounded-full p-3"> 
             <img src="https://img.icons8.com/ios-filled/50/22C55E/car--v1.png" alt="Online" className="h-8 w-8"/>
           </div>
-          {/* flex-grow tidak lagi diperlukan di sini karena konten Card sudah berpusat */}
           <div className="flex flex-col items-center">
             <p className="text-gray-500 text-sm">Kendaraan Online</p>
             <p className="text-2xl font-bold text-green-600">{onlineVehicles}</p>
           </div>
         </Card>
 
-        {/* PERUBAHAN DI SINI: flex flex-col items-center justify-center pada Card */}
-        <Card className="flex flex-col items-center justify-center p-4 shadow-md bg-white rounded-lg">
-          {/* Hapus mr-4 dari div ikon */}
-          <div className="bg-red-100 rounded-full p-3"> {/* Tambah mb-2 */}
+        <Card className="flex flex-col items-center justify-center p-4 shadow-md bg-white rounded-lg border border-gray-400">
+          <div className="bg-red-100 rounded-full p-3">
             <img src="https://img.icons8.com/ios-filled/50/EF4444/car--v1.png" alt="Offline" className="h-8 w-8" />
           </div>
           <div className="flex flex-col items-center">
@@ -105,10 +94,8 @@ const VehicleListPage: React.FC = () => {
           </div>
         </Card>
 
-        {/* PERUBAHAN DI SINI: flex flex-col items-center justify-center pada Card */}
-        <Card className="flex flex-col items-center justify-center p-4 shadow-md bg-white rounded-lg">
-          {/* Hapus mr-4 dari div ikon */}
-          <div className="bg-yellow-100 rounded-full p-3 "> {/* Tambah mb-2 */}
+        <Card className="flex flex-col items-center justify-center p-4 shadow-md bg-white rounded-lg border border-gray-400">
+          <div className="bg-yellow-100 rounded-full p-3 ">
             <img src="https://img.icons8.com/ios-filled/50/EAB308/car--v1.png" alt="Maintenance" className="h-8 w-8" />
           </div>
           <div className="flex flex-col items-center">
@@ -118,8 +105,7 @@ const VehicleListPage: React.FC = () => {
         </Card>
       </div>
 
-      {/* Gambaran Umum Peta */}
-      <Card className="shadow-md">
+      <Card className="shadow-md border border-gray-400">
         <CardHeader className="p-4 border-b border-gray-200">
           <CardTitle className="text-xl font-semibold text-gray-800">Map Overview</CardTitle>
         </CardHeader>
@@ -132,18 +118,17 @@ const VehicleListPage: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* Bagian Daftar Titik Poin */}
-      <Card className="shadow-md">
+      <Card className="shadow-md border border-gray-400">
         <CardHeader className="p-4 border-b border-gray-200 flex flex-row justify-between items-center">
           <CardTitle className="text-xl font-semibold text-gray-800">Vehicle List</CardTitle>
-          {/* Pencarian dan Filter dalam kartu daftar */}
           <div className="flex gap-4">
             <div className="relative">
+              {/* PERUBAHAN DI SINI: Menambahkan border border-gray-400 */}
               <Input
                 placeholder="Cari berdasarkan nama atau ID..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full md:w-64 pr-10"
+                className="w-full md:w-64 pr-10 border-gray-400"
               />
               {searchTerm && (
                 <button
@@ -154,8 +139,9 @@ const VehicleListPage: React.FC = () => {
                 </button>
               )}
           </div>
+            {/* PERUBAHAN DI SINI: Menambahkan border border-gray-400 */}
             <Select value={filterStatus} onValueChange={setFilterStatus}>
-              <SelectTrigger className="w-full md:w-[180px]">
+              <SelectTrigger className="w-full md:w-[180px] border-gray-400">
                 <SelectValue placeholder="Filter berdasarkan Status" />
               </SelectTrigger>
               <SelectContent>
