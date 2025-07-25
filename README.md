@@ -52,3 +52,7 @@ Setelah instalasi, Anda dapat menjalankan aplikasi di mode pengembangan:
 ```bash
 npm run dev
 ```
+
+🚀 Live Demo
+Anda dapat melihat live demo aplikasi ini di Vercel melalui tautan berikut:
+https://tes-frontend-widyarobotics.vercel.app/ 
