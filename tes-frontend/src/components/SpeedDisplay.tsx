@@ -1,6 +1,6 @@
 // src/components/SpeedDisplay.tsx
 import React from 'react';
-import { Badge } from "@/components/ui/badge"; // Pastikan Badge ShadCN terinstal
+import { Badge } from "@/components/ui/badge";
 
 interface SpeedDisplayProps {
   speed: number;
@@ -12,13 +12,13 @@ const SpeedDisplay: React.FC<SpeedDisplayProps> = ({ speed }) => {
 
   if (speed === 0) {
     statusText = "Stopped";
-    badgeClass = "bg-red-500 hover:bg-red-600 text-white"; // Menggunakan warna merah untuk berhenti
+    badgeClass = "bg-red-500 hover:bg-red-600 text-white"; 
   } else if (speed > 80) {
     statusText = "High Speed";
-    badgeClass = "bg-orange-500 hover:bg-orange-600 text-white"; // Oranye untuk kecepatan tinggi
+    badgeClass = "bg-orange-500 hover:bg-orange-600 text-white"; 
   } else {
     statusText = "Normal";
-    badgeClass = "bg-green-500 hover:bg-green-600 text-white"; // Hijau untuk kecepatan normal
+    badgeClass = "bg-green-500 hover:bg-green-600 text-white"; 
   }
 
   return (

@@ -50,7 +50,7 @@ const MapComponent: React.FC<MapComponentProps> = ({ latitude, longitude, vehicl
       <ChangeView center={position} zoom={13} />
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" // Mengubah URL ubin peta ke OpenStreetMap standar
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" 
       />
       <Marker position={position} icon={customVehicleIcon}>
         <Popup>
