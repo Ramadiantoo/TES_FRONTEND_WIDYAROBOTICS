@@ -7,7 +7,7 @@ import VehicleDetailPage from './pages/VehicleDetailPage';
 function App() {
   return (
     <Router>
-      <Layout>
+      <Layout> {/* Pastikan Layout membungkus Routes */}
         <Routes>
           <Route path="/" element={<VehicleListPage />} />
           <Route path="/vehicles/:id" element={<VehicleDetailPage />} />

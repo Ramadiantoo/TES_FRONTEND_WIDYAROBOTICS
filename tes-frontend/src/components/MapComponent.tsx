@@ -14,7 +14,6 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-
 interface MapComponentProps {
   latitude: number;
   longitude: number;
